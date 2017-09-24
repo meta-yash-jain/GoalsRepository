@@ -1,0 +1,299 @@
+@import "compass/css3";
+
+@import 'compass/css3';
+@import "compass/utilities/color/contrast";
+
+h1,h2,h3,p{
+  font-family: 'Rambla', sans-serif;
+  
+  a{ 
+    color: #2363A3;
+    text-decoration:none;
+  }
+}
+
+body{
+  padding: 0 1em;
+  @include background(radial-gradient(100%, #FFF #DDD));
+}
+
+@mixin button($colorStart, $colorEnd){
+	background: $colorStart;
+	@include background(linear-gradient(top, $colorStart $colorEnd));
+	@include box-shadow(0 0 2px $colorEnd);
+	@include contrasted($colorEnd, #222, #FFF, 65%);
+
+	&:hover{
+  		background: $colorStart;
+		@include background(linear-gradient(top, darken($colorStart, 5%) darken($colorEnd, 5%) ));
+  	}
+
+  	&:active{
+		@include box-shadow(0px 0px 7px darken($colorStart, 45%) inset);
+		border-width: 1px;
+		border-color: #666 transparent transparent #666;
+	}
+
+}
+
+.button{
+	background: #444;
+	@include background(linear-gradient(top, #666 #111));
+	@include box-shadow(0 0 2px #111);
+	border-color: transparent #666 #666 transparent;
+	outline: 0;
+  color: #FFF;
+	vertical-align: baseline;
+	white-space: nowrap;
+  	@include border-radius(5px);
+  	/*@include text-shadow(0px -1px 1px #666);*/
+  	cursor: pointer;
+  	font-family: 'Rambla', sans-serif;
+  	margin: 0.25em;
+  	padding: 0.5em 1em;
+  	text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+
+
+	/*COLOR STYLES*/
+	&.white{
+		@include button(#FFF, #DDD);
+	}
+
+	&.yellow{
+		@include button(#FFF035, #FFC850);
+	}
+
+	&.blue{
+		@include button(#2A77C3, #205A94);
+	}
+
+	&.green{
+		@include button(#91D89F, #0BB993);
+	}
+	
+	&.lightblue{
+		@include button(#00B2CD, #0092A9);
+	}
+
+	&.red{
+		@include button(#F4343E, #CD3030);
+	}
+
+	&.orange{
+		@include button(#FFC156, #FF9600);
+	}
+
+	&.violet{
+		@include button(#804068, #0A0430);
+	}
+
+	&.magenta{
+		@include button(#FF9AEC, #FF4BE4);
+	}
+
+	&.brown{
+		@include button(#C4351C, #94200C);
+	}
+
+	&.darkgreen{
+		@include button(#398E1F, #2B6B17);
+	}
+
+	/*Sizes Styles*/
+	&.big{
+		font-size: 1.3em
+	}
+
+	&.small{
+		font-size: 0.8em
+	}
+
+
+	/*oTHERS*/
+  	&:active{
+  		position: relative;
+  		top: 1px;
+  	}
+	
+}
+
+@mixin bright-button($color: #00CC66){
+  background:$color;
+  @include box-shadow(  
+    1px 1px 3px rgba(0,0,0,0.5),
+    inset 0 1px lighten($color, 20%),
+    inset 0 1em 2em rgba(lighten($color, 20%), .4),
+    inset 0 -.5em 1em rgba(darken($color, 20%), .4));
+  border:solid 1px #fff;
+  border:solid 1px $color;
+  text-decoration:none;
+  color: darken($color, 25%);
+  text-shadow:1px 1px 1px rgba(lighten($color, 25%), .55);
+  font-size:18px;
+  @include border-radius(6px);
+  &:hover, &.active, &.active-trail{
+    color: darken($color, 30%);
+    @include box-shadow(none);
+    text-shadow:none;
+    border:solid 1px darken($color, 10%);
+  }
+}
+
+.bright{
+  display:block;
+  text-align:center;
+  @include bright-button();
+  width:184px;
+  line-height:2;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300);
+
+body{
+  font-family:'Roboto Condensed', Arial, sans-serif;
+  font-size:20px;
+  font-weight:300;
+}
+.examples{
+  min-width:320px;
+  max-width:800px;
+  margin:20px;
+}
+
+.example{
+  margin-bottom:20px;
+}
+
+$yash: Yash Jain , Software Developer, #dcd782, 'michael.jpg';
+$rohit: Rohit Singhavi, Software Developer, #59c5c7, 'nathan.jpg';
+$pratap: Pratap Singh Ranawat, Software Developer, #e76e7f, 'zach.jpg';
+
+$myList: $yash, $rohit, $pratap;
+
+%proto-dude{
+	display:block;
+	height: 100px;
+	@include border-radius(100px);
+	background: #ccc;
+	color: white;
+	text-indent: 100px;
+	position: relative;
+	line-height: 100px;
+	&:after{
+		content:'';
+		display: block;
+		height: 80px;
+		width: 80px;
+		@include background-size(contain !important);
+		@include border-radius(80px);
+		position: absolute;
+		top:10px;
+		left: 10px;
+	}
+}
+
+@mixin define-dude($dude){
+	@extend %proto-dude;
+	background: nth($dude,3);
+	&:before{
+		content: "" + nth($dude,1) + ', ' + nth($dude,2) + "";
+	}
+	&:after{
+		background: url('http://sandbox.lazy-robot.com/sass-family-fun/img/'+ nth($dude,4));
+	}
+}
+
+$counter: 1;
+@each $guy in $myList{
+	.dude-#{$counter}{
+		@include define-dude($guy);
+	}
+	$counter: $counter + 1;
+}
+
+$speed: 2.5s;
+
+.loader {
+  margin: auto;
+  width: 175px;
+  height: 100px;
+  span {
+    display: block;
+    background: #ccc;
+    width: 7px;
+    height: 10%;
+    border-radius: 14px;
+    margin-right: 5px;
+    float: left;
+    margin-top: 25%;
+    &:last-child {
+      margin-right: 0px;
+    }
+    &:nth-child(1) {
+      animation: load $speed 1.4s infinite linear;
+    }
+    &:nth-child(2) {
+      animation: load $speed 1.2s infinite linear;
+    }
+    &:nth-child(3) {
+      animation: load $speed 1s infinite linear;
+    }
+    &:nth-child(4) {
+      animation: load $speed 0.8s infinite linear;
+    }
+    &:nth-child(5) {
+      animation: load $speed 0.6s infinite linear;
+    }
+    &:nth-child(6) {
+      animation: load $speed 0.4s infinite linear;
+    }
+    &:nth-child(7) {
+      animation: load $speed 0.2s infinite linear;
+    }
+    &:nth-child(8) {
+      animation: load $speed 0s infinite linear;
+    }
+    &:nth-child(9) {
+      animation: load $speed 0.2s infinite linear;
+    }
+    &:nth-child(10) {
+      animation: load $speed 0.4s infinite linear;
+    }
+    &:nth-child(11) {
+      animation: load $speed 0.6s infinite linear;
+    }
+    &:nth-child(12) {
+      animation: load $speed 0.8s infinite linear;
+    }
+    &:nth-child(13) {
+      animation: load $speed 1s infinite linear;
+    }
+    &:nth-child(14) {
+      animation: load $speed 1.2s infinite linear;
+    }
+    &:nth-child(15) {
+      animation: load $speed 1.4s infinite linear;
+    }
+  }
+}
+
+@keyframes load {
+  0% {
+    background: #ccc;
+    margin-top: 25%;
+    height: 10%;
+  }
+  50% {
+    background: #444;
+    height: 100%;
+    margin-top: 0%;
+  }
+  100% {
+    background: #ccc;
+    height: 10%;
+    margin-top: 25%;
+  }
+}
