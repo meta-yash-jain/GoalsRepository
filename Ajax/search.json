@@ -1,0 +1,15 @@
+{
+  "results": [{
+      "name": "ubuntu desktop 10.10 i386",
+      "magnet": "magnet:?xt=urn:btih:bcf2e587afd4d3....80%2Fannounce",
+      "seeds": "157"
+  }, {
+      "name": "Ubuntu 10.10 amd64",
+      "magnet": "magnet:?xt=urn:btih:4af6fb7cbfb87....80%2Fannounce",
+      "seeds": "63"
+  }, {
+      "name": "Ubuntu Ultimate Edition",
+      "magnet": "magnet:?xt=urn:btih:429f2330241....80%2Fannounce",
+      "seeds": "36"
+  }]
+}

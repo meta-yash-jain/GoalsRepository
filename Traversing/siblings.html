@@ -1,0 +1,50 @@
+<html>
+<head>
+<style>
+.siblings * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+.siblings button{
+	color: black;
+	float: left;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.fn.siblingsFunction = function(){
+		$("h2").siblings().css({"color": "red", "border": "2px solid red"});	
+	}
+	$.fn.nextFunction = function(){
+		$("h2").next().css({"color": "red", "border": "2px solid red"});	
+	}
+	$.fn.nextAllFunction = function(){
+		$("h2").nextAll().css({"color": "red", "border": "2px solid red"});	
+	}
+	$.fn.nextUntilFunction = function(){
+		$("p").nextUntil("h3").css({"color": "red", "border": "2px solid red"});	
+	}
+});
+</script>
+</head>
+<body class="siblings">
+
+<div>div (parent)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <p>p</p>
+</div>
+
+<button onclick="$(this).siblingsFunction();">Siblings</button>
+<button onclick="$(this).nextFunction();">Next</button>
+<button onclick="$(this).nextAllFunction();">Next All</button>
+<button onclick="$(this).nextUntilFunction();">Next Until</button>
+
+</body>
+</html>

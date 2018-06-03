@@ -1,0 +1,25 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.ajax({
+		  url: 'people.json',
+		  dataType: 'json',
+		  success: function( resp ) {
+			$( '#target').html( resp.people[0].name );
+		  },
+		  error: function( req, status, err ) {
+			console.log( 'something went wrong', status, err );
+		  }
+		});
+    });
+});
+</script>
+</head>
+<body>
+<p id="target"></p>
+<button>Send an request to a page and get the result back</button>
+
+</body>
+</html>

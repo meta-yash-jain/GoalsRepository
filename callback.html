@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button#b1").click(function(){
+        $("p#1").hide("slow", function(){
+            alert("The paragraph is now hidden");
+        });
+    });
+	$("button#b2").click(function(){
+		$("p#2").hide(1000);
+		alert("The paragraph is now hidden");
+	});
+});
+</script>
+</head>
+<body>
+
+<button id="b1">Hide p 1</button>
+
+<button id="b2">Hide p 2</button>
+
+<p id="1">This is a paragraph 1 with little content.</p>
+
+<p id="2">This is a paragraph 2 with little content.</p>
+
+</body>
+</html>

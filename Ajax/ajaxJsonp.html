@@ -1,0 +1,20 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+		$.getJSON( 'search.jsonp?callback=?',
+		  function( resp ) {
+			$( '#target' ).html( 'Results: ' + resp.results.length );
+		  }
+		);
+    });
+});
+</script>
+</head>
+<body>
+<p id="target"></p>
+<button>Send an request to a page and get the result back</button>
+
+</body>
+</html>

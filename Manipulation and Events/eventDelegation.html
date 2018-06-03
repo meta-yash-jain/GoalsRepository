@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	$( '#my-unordered-list' ).on( 'click', 'li', function( event ) {
+		console.log( this );
+	});
+
+	$( '<li>a new list item!</li>' ).appendTo( '#my-unordered-list' );
+});
+</script>
+</head>
+<body>
+<br/>
+	<ul id="my-unordered-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Bootstrap</li>
+    </ul>
+
+</body>
+</html>

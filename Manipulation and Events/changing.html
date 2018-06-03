@@ -1,0 +1,93 @@
+<html>
+<head>
+<style>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.fn.styleFunction = function(){
+		var list = $( '#my-unordered-list' );
+		var width = Math.floor( list.width() * 0.1 );
+
+		list.find('li').each(function( index, elem ) {
+		  var padding = width * index;
+		  $( elem ).css( 'padding-left', padding + 'px' );
+		});	
+	}
+	$.fn.formFunction = function(){
+		$( 'input[type="checkbox"]' ).prop( 'checked', 'checked' );
+		$( 'select' ).val( '2' );
+		$( 'input[type="text"]' ).val( 'new value' );		
+	}
+	$.fn.gettingFormFunction = function(){
+		alert($( 'input[type="text"]' ).val() + ' , ' + $( 'select' ).val());
+	}
+	$.fn.appendToFunction = function(){
+		$("<span>Hello World!</span>").appendTo("p");
+	}
+	$.fn.appendFunction = function(){
+		$("<span>Hello World!</span>").append("p");
+		alert('It will not append as the first element should be in the DOM but in appendTo it will create the element and then append it in last');
+		//It will not append as the first element should be in the DOM but in 
+		//appendTo it will create the element and then append it in last
+	}
+	$.fn.cloneFunction = function(){
+		var clones = $( 'li' ).clone();
+		clones.html(function( index, oldHtml ) {
+		  return oldHtml + '!!!';
+		});
+		$( '#my-unordered-list' ).append( clones );	
+	}
+	$.fn.removeFunction = function(){
+		//permanently delete from the DOM and also delete the binded events
+		$( '#my-unordered-list li' ).click(function() {
+		  alert( $( this ).text() );
+		});
+
+		var removedListItem = $( '#my-unordered-list li' ).first().remove();
+
+		removedListItem.appendTo( '#my-unordered-list' );
+		removedListItem.trigger( 'click' ); // no alert!
+	}
+	$.fn.detachFunction = function(){
+		//temporarily remove the element from the DOM and restore its binded events
+		$( '#my-unordered-list li' ).click(function() {
+		  alert( $( this ).text() );
+		});
+
+		var removedListItem = $( '#my-unordered-list li' ).first().detach();
+
+		removedListItem.appendTo( '#my-unordered-list' );
+		removedListItem.trigger( 'click' ); //alert!
+	}
+
+});
+</script>
+</head>
+<body>
+    <ul id="my-unordered-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Bootstrap</li>
+    </ul>   
+	<input type="text" value=""/>
+	<input type="checkbox" value=""/>
+	<select>
+		<option value="1">option 1</option>
+		<option value="2">option 2</option>
+		<option value="3">option 3</option>
+	</select>
+	</br></br>
+	<p>This is the example of append To..</p>
+<button onclick="$(this).styleFunction();">Style</button>
+<button onclick="$(this).formFunction();">Form</button>
+<button onclick="$(this).gettingFormFunction();">Getting Form</button>
+<button onclick="$(this).appendToFunction();">AppendTo</button>
+<button onclick="$(this).appendFunction();">Append</button>
+<button onclick="$(this).cloneFunction();">Clone</button>
+<button onclick="$(this).removeFunction();">Remove</button>
+<button onclick="$(this).detachFunction();">Detach</button>
+
+</body>
+</html>

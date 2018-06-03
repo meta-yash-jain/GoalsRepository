@@ -1,0 +1,53 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.fn.firstFunction = function(){
+		 $("div").first().css("background-color", "yellow");	
+	}
+	$.fn.lastFunction = function(){
+		 $("div").last().css("background-color", "yellow");	
+	}
+	$.fn.eqFunction = function(){
+		 $("div").eq(1).css("background-color", "yellow");	
+	}
+	$.fn.filterFunction = function(){
+		 $("p").filter(".intro").css("background-color", "yellow");	
+	}
+	$.fn.notFunction = function(){
+		 $("p").not(".intro").css("background-color", "yellow");	
+	}
+});
+</script>
+</head>
+<body>
+<h1>Welcome to My Homepage</h1>
+
+<p>This is a paragraph.</p>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in a div.</p>
+  <p>Another paragraph in a div.</p>
+</div>
+<br>
+
+<div style="border: 1px solid black;">
+  <p class="intro">A paragraph in another div.</p>
+  <p class="intro">Another paragraph in another div.</p>
+</div>
+<br>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in another div.</p>
+  <p>Another paragraph in another div.</p>
+</div>
+
+<button onclick="$(this).firstFunction();">First</button>
+<button onclick="$(this).lastFunction();">Last</button>
+<button onclick="$(this).eqFunction();">Eq</button>
+<button onclick="$(this).filterFunction();">Filter</button>
+<button onclick="$(this).notFunction();">Not</button>
+
+</body>
+</html>

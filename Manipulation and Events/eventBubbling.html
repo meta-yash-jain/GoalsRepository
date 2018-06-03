@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	$( '*' ).add( [ document, window ] ).on( 'click', function( event ) {
+	  //It will trigger for a tag as well as those who contains a tag
+	  //To stop this use stopPropogation method
+	  event.preventDefault();
+	  console.log( this );
+	});
+	$( 'a' ).on( 'click', function( event ) {
+		event.preventDefault();
+		console.log( $( this ).attr( 'href' ) );
+	});
+});
+</script>
+</head>
+<body>
+<br/>
+<a href="#foo"><span>I am a Link!</span></a>
+<a href="#bar"><b><i>I am another Link!</i></b></a>
+
+</body>
+</html>

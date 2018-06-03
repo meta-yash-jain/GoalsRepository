@@ -1,0 +1,54 @@
+<html>
+<head>
+<style>
+.descendants * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+	$("p#doubleClick").dblclick(function(){
+		$(this).hide();
+	});
+	$("p#singleClick").click(function(event){
+		alert('event.type ' + event.type + ' , ' + '+ event.which ' + event.which + ' , ' + '+ event.pageX ' + event.pageX + ' , ' + '+ event.pageY ' + event.pageY);
+		$(this).hide();
+	});
+	$("p#mouseEvents").on({
+		mouseenter: function(){
+			$(this).css("background-color", "lightgray");
+		}, 
+		mouseleave: function(){
+			$(this).css("background-color", "lightblue");
+		}, 
+		click: function(){
+			$(this).css("background-color", "yellow");
+		} 
+	});
+	$( '#my-unordered-list' ).on( 'click', 'li', function( event ) {
+		console.log( this );
+		alert('see console');
+		// logs the list item that was clicked
+	});
+	
+});
+</script>
+</head>
+<body>
+	<ul id="my-unordered-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Bootstrap</li>
+	</ul>   
+  <p id="singleClick">Single Click Me!!!</p>
+  <p id="doubleClick">Double Click Me!!!</p>
+  <p id="mouseEvents">Mouse Events !!!</p>
+
+</body>
+</html>
