@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Function Scope example</title>	
+  </head>
+  <body>
+	<button onclick="draw()">Draw</button>
+	<canvas id="canvas" width="1000" height="500"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+		function draw() {
+		  ctx.clearRect(0,0,1000,500);
+		  for (var i = 0; i < 100; i++) {
+			ctx.beginPath();
+			ctx.fillStyle = 'rgba(255,0,0,0.5)';
+			ctx.arc(random(1000), random(500), random(50), 0, 2 * Math.PI);
+			ctx.fill();
+		  }
+		}
+		function random(number) {
+		  return Math.floor(Math.random()*number);
+		}
+	</script>
+  </body>
+</html>

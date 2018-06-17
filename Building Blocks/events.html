@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Events example</title>	
+	<style>
+		.color{
+			width: 200px;
+			height: 100px;
+			background-color: black;
+			float: left;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<div class="color"></div>
+	<script>
+		var divs = document.querySelectorAll('div');			
+		
+		function random(number) {
+		  return Math.floor(Math.random()*(number+1));
+		}
+
+		function bgChange(e) {
+		  var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+		  event.target.style.backgroundColor = rndCol;
+		  console.log(e);
+		}  
+
+		for (var i = 0; i < divs.length; i++) {
+		  divs[i].onclick = function(e) {
+			e.target.style.backgroundColor = bgChange();
+		  }
+		}		
+		
+	</script>
+  </body>
+</html>

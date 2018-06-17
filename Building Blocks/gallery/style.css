@@ -1,0 +1,42 @@
+h1 {
+  text-align: center;
+}
+
+.full-img {
+  display: block;
+  margin:0 auto;
+  width: 1024px;
+  height: 600px;
+}
+
+.full-img img{
+  width: inherit;
+  height: inherit;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  background-color: #0000;
+}
+
+button {
+  border: 0;
+  background: #96969699;
+  text-shadow: 1px 1px 1px white;
+  border: 1px solid #999;
+  position: absolute;
+  cursor: pointer;
+  top: 2px;
+  left: 2px;
+}
+
+.thumb-bar img {
+  display: block;
+  width: 20%;
+  float: left;
+  cursor: pointer;
+}

@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Basics example</title>
+	<style>
+		.output{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+		}		
+	</style>
+  </head>
+  <body>
+	<div class="output">
+		<select>
+			<option>black</option>
+			<option>white</option>
+			<option>purple</option>
+			<option>yellow</option>
+			<option>psychedelic</option>
+		</select>
+	<div>
+    <script>
+		var select = document.querySelector('select');
+		var html = document.querySelector('.output');
+
+		select.onchange = function() {
+		 var choice = select.value;
+
+		 switch(choice) {
+		 case 'black':
+		 update('black','white');
+		 break;
+		 case 'white':
+		 update('white','black');
+		 break;
+		 case 'purple':
+		 update('purple','white');
+		 break;
+		 case 'yellow':
+		 update('yellow','darkgray');
+		 break;
+		 case 'psychedelic':
+		 update('lime','purple');
+		 break;
+		 }
+		}
+
+		function update(bgColor, textColor) {
+		 html.style.backgroundColor = bgColor;
+		 html.style.color = textColor;
+		}  
+	</script>
+  </body>
+</html>

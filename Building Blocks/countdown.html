@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Countdown example</title>
+	<style>
+		.output{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+		}		
+	</style>
+  </head>
+  <body>
+	<div class="output"><div>
+    <script>
+		var output = document.querySelector('.output');
+		output.innerHTML = '';
+
+		var i = 10;
+
+		while(i >= 0) {
+		 var para = document.createElement('p');
+		 if(i === 10) {
+		 para.textContent = 'Countdown ' + i;
+		 } else if(i === 0) {
+		  para.textContent = 'Blast off!';
+		 } else {
+		 para.textContent = i;
+		 }
+
+		 output.appendChild(para);
+
+		 i--;
+		}
+	</script>
+  </body>
+</html>

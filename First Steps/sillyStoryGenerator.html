@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Silly Story Generator example</title>
+	<style>
+	.mainDiv{
+		width: 500px;
+		height: auto;
+		margin: 0 auto;
+	}
+	p{
+	    background: #FFC125;
+	}
+	</style>
+  </head>
+  <body>
+	<div class="mainDiv">
+		<label>Enter custom name:</label><input type="text" id="name" value=""/>
+		<br/><br/>
+		US<input id="US" name="country" type="radio" value="us" checked />
+		UK<input id="UK" name="country" type="radio" value="uk" />
+		<br/><br/>
+		<button onclick="generate()">Generate random story</button>	
+		<br/><br/>
+		<p id="story"></p>
+	<div>
+    <script>
+		var line1 = ["Big Daddy", "Father Christmas", "Willy the Goblin"];
+		var line2 = ["soup kitchen", "Disneyland", "White House"];
+		var line3 = ["melted into a puddle on the sidewalk", "turned into a slug and crawled away", "spontaneously combusted"];
+		var random = Math.floor((Math.random() * 3));
+		function generate(){
+			console.log('asasd');
+			var name = document.getElementById('name').value;
+			name = name == "" ? 'Bob' : name;
+			if(document.getElementById('US').checked == true){
+				document.getElementById('story').innerHTML = 'It was 94 farenheit outside, so ' + line1[random] + 'went for a walk. When they got to the '+ line2[random] + ', they stared in horror for a few moments, then' + line3[random] + '. ' + name + ' saw the whole thing, but was not surprised — '+ line1[random] +' weighs 300 pounds, and it was a hot day.';
+			}
+			if(document.getElementById('UK').checked == true){
+				document.getElementById('story').innerHTML = 'It was 34 centigrade outside, so ' + line1[random] + 'went for a walk. When they got to the '+ line2[random] + ', they stared in horror for a few moments, then' + line3[random] + '. ' + name + ' saw the whole thing, but was not surprised — '+ line1[random] +' weighs 21 stone, and it was a hot day.';			
+			}
+		}
+	</script>
+  </body>
+</html>

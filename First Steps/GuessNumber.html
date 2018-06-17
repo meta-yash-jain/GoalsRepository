@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>GUess Number</title>
+<style>
+.mainDiv{
+	width: 500px;
+	height: auto;
+	margin: 0 auto;
+}
+#startButton{
+	display: none;
+}
+.redBackground{
+	background: red;
+	color: white;
+}
+.greenBackground{
+	background: green;
+	color: white;
+}
+
+</style>
+</head>
+<body>
+	<div class="mainDiv">
+	Enter a guess: <input id="number" type="text" value=""/>
+	<button id="submit" onclick="guessNumber()">Submit Guess</button>	
+	<br/>
+	Previous Guesses:
+	<div id="previous"></div>
+	<br/>	
+	<p class="message"></p>
+	<br/>
+	<p class="guessMessage"></p>
+	<button id="startButton" onclick="startNewGame()">Start New Game</button>
+	</div>
+<script>
+	var previousGuesses = [];
+	var para = document.createElement("P");
+	var randomNumber = Math.floor((Math.random() * 100) + 1);
+	console.log(randomNumber);
+	function startNewGame(){
+		randomNumber = Math.floor((Math.random() * 100) + 1);
+		previousGuesses = [];
+		console.log(randomNumber);
+		document.getElementById('number').disabled = false;
+		document.getElementById('submit').disabled = false;
+		para.innerHTML = "";
+		document.getElementById('startButton').style.display = "none";
+		document.getElementsByClassName('message')[0].style.display = "none";
+	}
+	function showPreviousGuesses(){		
+		para.innerHTML = "";
+		document.getElementById('number').value = "";
+	    var t = document.createTextNode(' ');
+		var i;
+		for(i = 0; i < previousGuesses.length; i++){
+			t.textContent += previousGuesses[i] + ' ';
+		}
+	    para.innerHTML = t.textContent;
+		document.getElementById("previous").appendChild(para);
+	}
+	function guessNumber(){		
+		var userNo = document.getElementById('number').value;
+		userNo = userNo == "" ? 0 : userNo;
+		if(previousGuesses.length == 10){
+			document.getElementsByClassName('message')[0].innerHTML = "Game Over";
+			document.getElementsByClassName('message')[0].classList.add('redBackground');
+			document.getElementsByClassName('message')[0].classList.remove('greenBackground');
+			document.getElementById('startButton').style.display = "none";
+			document.getElementsByClassName('guessMessage')[0].style.display = "block";
+			document.getElementById('number').disabled = true;
+			document.getElementById('submit').disabled = true;
+		}else{
+			previousGuesses.push(userNo);	
+			showPreviousGuesses();
+			document.getElementById('startButton').style.display = "none";
+			document.getElementsByClassName('guessMessage')[0].style.display = "block";	
+			document.getElementsByClassName('message')[0].style.display = "block";			
+			if(userNo == randomNumber){
+				document.getElementsByClassName('message')[0].innerHTML = "Congratulations! You got it right!";				
+				document.getElementsByClassName('message')[0].classList.add('greenBackground');
+				document.getElementsByClassName('message')[0].classList.remove('redBackground');
+				document.getElementById('startButton').style.display = "block";
+				document.getElementsByClassName('guessMessage')[0].style.display = "none";
+				document.getElementById('number').disabled = true;
+				document.getElementById('submit').disabled = true;
+			}else{				
+				document.getElementsByClassName('message')[0].innerHTML = "Wrong!";				
+				document.getElementsByClassName('message')[0].classList.add('redBackground');
+				document.getElementsByClassName('message')[0].classList.remove('greenBackground');
+				if(userNo > randomNumber){
+					document.getElementsByClassName('guessMessage')[0].innerHTML = "Last guess was too high!";								
+				}else{
+					document.getElementsByClassName('guessMessage')[0].innerHTML = "Last guess was too low!";								
+				}
+			}
+		}		
+	}
+	
+</script>
+</body>
+</html>
