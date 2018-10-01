@@ -1,0 +1,20 @@
+.row-hello {
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.row-hello.active .left-side {
+    right: 50%;
+}
+
+.row-hello.active .right-side {
+    display: block;
+    left: 50%;
+    position: absolute;
+}
+
+@media screen and (max-width: 767px) {
+    .right-side {
+        display: none;
+    }
+}
