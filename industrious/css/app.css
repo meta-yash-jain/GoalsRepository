@@ -1,0 +1,155 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: #6c6d73;
+  background-image: url(../img/bg.jpg);
+}
+
+img {
+  max-width: 100%;
+}
+
+.navbar {
+  background: #111111;
+}
+.navbar a.navbar-brand {
+  color: #ffffff;
+}
+.navbar a.navbar-brand:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+.navbar a.nav-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+.navbar a.nav-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+.navbar i {
+  color: white;
+}
+
+.backg-container {
+  position: relative;
+}
+
+video {
+  height: auto;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.overlay-desc {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay-desc h1 {
+  color: white;
+  font-family: "Nobile", sans-serif;
+  font-size: 9vw;
+  text-align: center;
+}
+.overlay-desc p {
+  color: white;
+}
+
+#features {
+  padding: 7rem 0rem;
+  background: rgb(255, 255, 255, 0.9);
+}
+
+#features .box {
+  background-color: white;
+}
+#features .heading {
+  font-size: 3.5vw;
+  margin-bottom: 2rem;
+}
+#features .heading-text {
+  margin-bottom: 5rem;
+}
+#features i {
+  color: #ce1b28;
+  font-size: 5vw;
+  margin-bottom: 2rem;
+}
+#features .box {
+  padding: 4rem;
+}
+
+#stripe {
+  background: url("../img/cta01.jpg") center center no-repeat;
+  background-size: cover;
+}
+#stripe h2 {
+  color: white;
+}
+#stripe p {
+  color: rgba(255, 255, 255, 0.75);
+}
+#stripe .stripe-content {
+  padding: 6rem;
+}
+
+#about .about-content {
+  padding: 8rem 0rem 0rem 0rem;
+}
+#about .box {
+  padding: 4rem;
+}
+#about .bl-box {
+  border-left: 10px solid rgba(0, 0, 0, 0.25);
+  padding: 1rem 1.5rem;
+}
+#about .author {
+  padding: 1rem;
+}
+
+#footer {
+  background-color: #111111;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 8rem 0 6rem 0;
+  display: block;
+  margin: 0;
+}
+
+#footer h4 {
+  color: white;
+  padding-bottom: 20px;
+}
+
+#footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+#footer ul li {
+  padding: 10px 0;
+  list-style: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#footer ul li a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#footer ul li a i {
+  background-color: black;
+}
+
+#footer .copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding-top: 20px;
+}
+
