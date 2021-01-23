@@ -10,5 +10,9 @@ function file1name1(params) {
 }
 
 function file1name2(params) {
-    console.log('name2');    
+    if (condition) { 
+        console.log('name4');
+    } else {
+        console.log('name5');
+    }
 }
