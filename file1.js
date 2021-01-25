@@ -1,5 +1,9 @@
 function file1name1(params) {
     console.log('name1');
+}
+
+function file1name123(params) {
+    console.log('name1');
     if (condition) {
         if (condition1) {
             console.log('name2');
